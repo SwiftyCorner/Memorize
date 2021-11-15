@@ -9,10 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("added voice!")
-            .padding()
-            .background().colorInvert()
-            .shadow(radius: 10)
+        return RoundedRectangle(cornerRadius: 25.0).padding(.horizontal)
     }
 }
 
