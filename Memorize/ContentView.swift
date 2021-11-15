@@ -9,10 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("sports, world!")
-            .padding()
-            .background().colorInvert()
-            .shadow(radius: 10)
+        return RoundedRectangle(cornerRadius: 25.0).padding(.horizontal)
     }
 }
 
