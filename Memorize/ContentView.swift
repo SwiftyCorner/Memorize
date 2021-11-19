@@ -12,8 +12,8 @@ struct ContentView: View {
         HStack {
             CardView()
             CardView()
-            
-            
+            CardView()
+            CardView()
         }
         
         .padding(.horizontal)
@@ -21,12 +21,26 @@ struct ContentView: View {
     }
 }
 struct CardView: View {
+    @State var isFaceUp: Bool = true
+    
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 25.0)
+            let shape = RoundedRectangle(cornerRadius: 20.0)
+            if isFaceUp {
+            shape
+                .fill()
+                .foregroundColor(.white)
+            shape
                 .stroke(lineWidth: 3)
             Text("✈️")
                 .font(.largeTitle)
+            } else {
+                shape
+                    .fill()
+            }
+        }
+        .onTapGesture {
+            isFaceUp = !isFaceUp
         }
     }
 }
@@ -34,5 +48,8 @@ struct CardView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
+        ContentView()
+            .preferredColorScheme(.light)
     }
 }
