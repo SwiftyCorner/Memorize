@@ -20,13 +20,13 @@ struct ContentView: View {
         .foregroundColor(.red)
     }
 }
-
 struct CardView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25.0)
                 .stroke(lineWidth: 3)
-            Text("hello")
+            Text("✈️")
+                .font(.largeTitle)
         }
     }
 }
