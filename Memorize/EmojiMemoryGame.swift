@@ -12,7 +12,7 @@ import SwiftUI
 
 
 
-class EmojiMemoryGame {
+class EmojiMemoryGame: ObservableObject { // observable objects can publish to the world that something changed
     
     static let emojis = ["🚌", "🎡", "🏖", "🛳", "🛫", "🚦", "🏝", "🚧", "🏨", "⛺️", "🪝", "🌋", "🎇", "⌚️", "💽", "💾", "🕹", "📡", "🕯", "🪓", "📫", "📦", "✏️", "🚩"]
     
@@ -22,9 +22,17 @@ class EmojiMemoryGame {
         }
     }
     
-    private var model: MemoryGame<String> = createMemoryGame()
+    @Published private var model: MemoryGame<String> = createMemoryGame() // publishes to the world something changed any time the model changed (step 1/2)
     
     var cards: Array<MemoryGame<String>.Card> {
-        return model.cards
+        model.cards
     }
+    
+    // MARK: - intents
+    
+    func choose(_ card: MemoryGame<String>.Card) {
+        model.choose(card)
+    }
+    
 }
+

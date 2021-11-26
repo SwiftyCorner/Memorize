@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct MemorizeApp: App {
+    let game = EmojiMemoryGame() // game is a pointer to a class; 'let' means we don't change the pointer
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: game)
         }
     }
 }
